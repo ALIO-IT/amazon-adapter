@@ -1,5 +1,7 @@
 # Note About AWS Marketplace API Documentation
 
+[Read this note in other languages: **English** | [Español](AWS_MARKETPLACE_NOTE.es.md) | [Português](AWS_MARKETPLACE_NOTE.pt.md)]
+
 ## ⚠️ Important Clarification
 
 The PDF file `marketplace-api.pdf` in this directory is documentation for **AWS Marketplace API**, which is **NOT** the correct API for this project.

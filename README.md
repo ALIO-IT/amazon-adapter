@@ -2,6 +2,14 @@
 
 A FastAPI web application that converts AutoZone-style auto parts CSV files into Amazon's upload format for listing products on Amazon.com.
 
+## 📖 Documentation in Other Languages
+
+- **English** - You are here
+- [Español](README.es.md) - Documentación en español
+- [Português](README.pt.md) - Documentação em português
+
+---
+
 ## Features
 
 - 🚀 **Fast & Modern**: Built with FastAPI for high performance

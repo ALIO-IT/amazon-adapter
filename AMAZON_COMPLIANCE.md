@@ -1,5 +1,7 @@
 # Amazon Seller Central API Compliance Documentation
 
+[Read this documentation in other languages: **English** | [Español](AMAZON_COMPLIANCE.es.md) | [Português](AMAZON_COMPLIANCE.pt.md)]
+
 ## Overview
 
 This document outlines how the Amazon Auto Parts Adapter complies with Amazon Seller Central's product upload specifications for the Automotive & Powersports category.
