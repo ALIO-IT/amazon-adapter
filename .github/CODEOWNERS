@@ -1,0 +1,22 @@
+# This file defines code owners for automatic PR review assignments
+# Each line is a pattern followed by one or more owners
+
+# Default owner for everything
+* @R2
+
+# Python files
+*.py @R2
+
+# Documentation
+*.md @R2
+README* @R2
+LICENSE @R2
+
+# Configuration files
+requirements.txt @R2
+.gitignore @R2
+venv/ @R2
+
+# GitHub templates
+.github/ @R2
+
