@@ -410,6 +410,214 @@ if response.status_code == 200:
         print(f"✅ {len(df)} products ready for Amazon")
 ```
 
+### Use Case 5: Updating Existing Amazon Listings
+
+**Scenario:** You need to update prices, quantities, or descriptions for products already listed on Amazon.
+
+**How It Works:**  
+When Amazon receives a CSV with a `product-id` that matches an existing listing, it **updates** the item instead of creating a new one. This allows you to modify:
+- Prices (standard-price, list-price)
+- Inventory quantities
+- Product descriptions
+- Fitment information
+- Condition
+- Other product details
+
+**Important Notes:**
+- Use the **same product-id** (UPC or SKU) as the existing listing
+- Only fields included in the CSV will be updated
+- Empty fields may clear existing data (be careful!)
+- Updates typically process within 15-30 minutes on Amazon
+
+**Example Workflow:**
+
+**Step 1: Create update CSV with new data**
+
+Your `price_update.csv`:
+```csv
+Part Number,Description,Brand,Price,Quantity,Category,UPC
+BRK-001,Brake Pad Set - Ceramic Front,AutoZone,39.99,50,Brakes,012345678901
+FLT-234,Engine Air Filter,K&N,19.99,75,Filters,012345678902
+BAT-123,Automotive Battery 800 CCA,DieHard,129.99,20,Batteries,012345678905
+```
+
+**Step 2: Convert and upload**
+```bash
+# Convert the update file
+curl -X POST "http://localhost:8000/convert" \
+  -F "file=@price_update.csv" \
+  -o update_response.json
+
+# Download converted file
+OUTPUT_FILE=$(cat update_response.json | jq -r '.output_file')
+curl -O "http://localhost:8000/download/$OUTPUT_FILE"
+
+# Upload to Amazon Seller Central
+echo "Upload $OUTPUT_FILE to Amazon to update your listings"
+```
+
+**Step 3: Amazon processes the updates**
+
+Amazon will:
+- Match `product-id: 012345678901` to existing listing
+- Update price: $45.99 → $39.99
+- Update quantity: 25 → 50
+- Update list-price: $55.19 → $47.99 (auto-calculated)
+
+**Automated Price Update Script:**
+
+```python
+#!/usr/bin/env python3
+"""
+update_amazon_prices.py
+Automatically update Amazon prices based on your current inventory
+"""
+import pandas as pd
+import requests
+from datetime import datetime
+
+def update_amazon_listings(inventory_file):
+    """Convert and prepare inventory updates for Amazon"""
+    
+    print(f"🔄 Processing updates from {inventory_file}")
+    
+    # Convert using the adapter
+    with open(inventory_file, 'rb') as f:
+        response = requests.post(
+            'http://localhost:8000/convert',
+            files={'file': f}
+        )
+    
+    if response.status_code != 200:
+        print(f"❌ Error: {response.json()['detail']}")
+        return
+    
+    result = response.json()
+    output_file = result['output_file']
+    
+    print(f"✅ Converted {result['rows_processed']} products")
+    print(f"📄 Output file: {output_file}")
+    
+    # Download the converted file
+    download_response = requests.get(
+        f'http://localhost:8000/download/{output_file}'
+    )
+    
+    # Save locally
+    local_file = f"amazon_update_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    with open(local_file, 'wb') as f:
+        f.write(download_response.content)
+    
+    print(f"💾 Saved to: {local_file}")
+    print(f"\n📤 Next steps:")
+    print(f"   1. Review {local_file}")
+    print(f"   2. Upload to Amazon Seller Central")
+    print(f"   3. Wait 15-30 minutes for processing")
+    
+    # Optional: Show what changed
+    df = pd.read_csv(local_file)
+    print(f"\n📊 Summary:")
+    print(f"   - Products to update: {len(df)}")
+    print(f"   - Average price: ${df['standard-price'].mean():.2f}")
+    print(f"   - Total inventory: {df['quantity'].sum()} units")
+    
+    return local_file
+
+# Example usage
+if __name__ == "__main__":
+    # Your current inventory export
+    inventory_file = "current_inventory.csv"
+    
+    # Process updates
+    amazon_file = update_amazon_listings(inventory_file)
+    
+    print("\n✨ Update file ready for Amazon!")
+```
+
+**Running the script:**
+```bash
+python update_amazon_prices.py
+
+# Output:
+# 🔄 Processing updates from current_inventory.csv
+# ✅ Converted 150 products
+# 📄 Output file: amazon_auto_parts_20251026_143022.csv
+# 💾 Saved to: amazon_update_20251026_143022.csv
+# 
+# 📤 Next steps:
+#    1. Review amazon_update_20251026_143022.csv
+#    2. Upload to Amazon Seller Central
+#    3. Wait 15-30 minutes for processing
+# 
+# 📊 Summary:
+#    - Products to update: 150
+#    - Average price: $47.32
+#    - Total inventory: 3,420 units
+# 
+# ✨ Update file ready for Amazon!
+```
+
+**Best Practices for Updates:**
+
+1. **Test First**: Update 1-2 products first to verify it works
+2. **Backup Data**: Keep a copy of current listings before bulk updates
+3. **Verify Product IDs**: Ensure UPCs/SKUs match exactly
+4. **Review Changes**: Always review the converted CSV before uploading
+5. **Schedule Wisely**: Update during low-traffic hours if possible
+6. **Monitor Results**: Check Amazon Seller Central for processing status
+
+**Common Update Scenarios:**
+
+| Scenario | What to Include in CSV | Result |
+|----------|----------------------|--------|
+| **Price Drop Sale** | product-id, standard-price, quantity | Updates prices, keeps all other data |
+| **Restock Items** | product-id, quantity | Updates inventory, prices unchanged |
+| **Fix Descriptions** | product-id, item-name, product-description | Updates text, prices/qty unchanged |
+| **Bulk Price Increase** | product-id, standard-price, list-price | Updates both prices |
+| **Update Fitment** | product-id, fitment-year, fitment-make, fitment-model | Updates compatibility info |
+
+**Validation Before Upload:**
+
+```python
+# validate_updates.py
+import pandas as pd
+
+def validate_update_file(amazon_csv):
+    """Validate the Amazon CSV before uploading"""
+    df = pd.read_csv(amazon_csv)
+    
+    issues = []
+    
+    # Check for product IDs
+    if df['product-id'].isna().any():
+        issues.append("⚠️  Some products missing product-id")
+    
+    # Check for price sanity
+    if (df['standard-price'] == 0).any():
+        issues.append("⚠️  Some products have $0 price")
+    
+    if (df['standard-price'] > df['list-price']).any():
+        issues.append("⚠️  Some standard prices exceed list price")
+    
+    # Check for negative inventory
+    if (df['quantity'] < 0).any():
+        issues.append("⚠️  Some products have negative quantity")
+    
+    if issues:
+        print("❌ Validation Issues Found:")
+        for issue in issues:
+            print(f"   {issue}")
+        return False
+    else:
+        print("✅ Validation passed! Safe to upload.")
+        print(f"   📦 {len(df)} products ready")
+        print(f"   💰 Price range: ${df['standard-price'].min():.2f} - ${df['standard-price'].max():.2f}")
+        return True
+
+# Use it
+validate_update_file('amazon_update_20251026_143022.csv')
+```
+
 ## Troubleshooting
 
 ### Common Issues and Solutions
