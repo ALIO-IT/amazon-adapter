@@ -1048,9 +1048,225 @@ You agree to indemnify, defend, and hold harmless the authors, contributors, and
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! We use GitHub pull requests to manage contributions.
 
-By contributing to this project, you agree that your contributions will be licensed under the MIT License.
+### 📋 How to Contribute
+
+1. **Fork the Repository**
+   - Go to https://github.com/ALIO-IT/amazon-adapter
+   - Click the "Fork" button in the top right corner
+   - This creates a copy of the repository in your GitHub account
+
+2. **Clone Your Fork**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/amazon-adapter.git
+   cd amazon-adapter
+   ```
+
+3. **Add Upstream Remote**
+   ```bash
+   git remote add upstream https://github.com/ALIO-IT/amazon-adapter.git
+   git remote -v
+   # Should show: origin (your fork) and upstream (original repo)
+   ```
+
+4. **Create a Feature Branch**
+   ```bash
+   git checkout main
+   git pull upstream main
+   git checkout -b feature/your-feature-name
+   ```
+   
+   **Branch Naming Convention:**
+   - `feature/` - New features
+   - `fix/` - Bug fixes
+   - `docs/` - Documentation updates
+   - `refactor/` - Code refactoring
+   - `test/` - Adding or updating tests
+
+5. **Make Your Changes**
+   - Write your code following the project's style
+   - Add tests if applicable
+   - Update documentation as needed
+
+6. **Commit Your Changes**
+   ```bash
+   git add .
+   git commit -m "Description of your changes"
+   ```
+   
+   **Commit Message Guidelines:**
+   - Use clear, descriptive messages
+   - Start with a verb (Add, Fix, Update, Remove)
+   - Keep first line under 50 characters
+   - Examples:
+     - `Add support for custom field mapping`
+     - `Fix price formatting in output CSV`
+     - `Update documentation for API endpoints`
+
+7. **Push to Your Fork**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+8. **Create a Pull Request**
+   - Go to your fork on GitHub
+   - Click "Compare & pull request" button
+   - Fill out the PR template
+   - Select the base: `ALIO-IT/amazon-adapter:main`
+   - Click "Create pull request"
+
+### ⚠️ Pull Request Requirements
+
+**All pull requests require review and approval before merging.**
+
+Before submitting a PR, please ensure:
+- ✅ Code follows project style guidelines (PEP 8 for Python)
+- ✅ Tests pass locally: `python test_conversion.py`
+- ✅ Documentation is updated if needed (README, code comments)
+- ✅ No breaking changes without discussion first
+- ✅ PR description is clear and complete
+- ✅ All checkboxes in the PR template are checked
+
+### 🔍 PR Review Process
+
+**Step 1: PR Submission**
+- Your PR will be automatically assigned to maintainers via CODEOWNERS
+- GitHub will show "Review required" status
+
+**Step 2: Review**
+- A maintainer will review your code
+- Automated checks (if enabled) will run
+- You may receive feedback or requested changes
+
+**Step 3: Address Feedback**
+- If changes are requested, update your branch:
+  ```bash
+  # Make your changes
+  git add .
+  git commit -m "Address review feedback"
+  git push origin feature/your-feature-name
+  ```
+- The PR will automatically update with new commits
+- Maintainer will review again
+
+**Step 4: Approval**
+- Once approved, PR shows "✅ Approved" status
+- PR is ready to merge
+
+**Step 5: Merge**
+- **Only maintainers can merge PRs** (branch protection rule)
+- After merge, your branch will be deleted automatically
+- Your commits appear in the main branch
+
+### 🚫 What You CANNOT Do
+
+❌ **Cannot merge your own PRs** - Branch protection prevents this
+❌ **Cannot bypass review requirements** - All PRs must be reviewed
+❌ **Cannot push directly to main** - Must use pull requests
+❌ **Cannot force-push to protected branches** - Branch protection prevents this
+
+### 📝 PR Best Practices
+
+**Good PR:**
+```markdown
+Add support for custom field mapping in CSV parser
+
+## Description
+Allows users to specify custom column names in their CSV files that will be automatically mapped to standard Amazon fields.
+
+## Changes
+- Added `custom_mappings` parameter to `AutoPartsParser`
+- Updated `_standardize_columns()` to handle custom mappings
+- Added documentation and examples
+
+## Testing
+- ✅ New unit tests added
+- ✅ Manual testing with sample CSV
+- ✅ Documentation updated
+```
+
+**Bad PR:**
+```
+fix stuff
+(No description, no testing info, unclear changes)
+```
+
+### 🎯 What Gets Approved Quickly
+
+- ✅ Clear description of changes
+- ✅ Tests included
+- ✅ Documentation updated
+- ✅ Code follows project style
+- ✅ Addresses specific issue or adds requested feature
+- ✅ Small, focused changes (easier to review)
+- ✅ Responds to feedback promptly
+
+### 🕐 Review Timeline
+
+- **First Review**: Within 2-3 business days
+- **Response**: 1 week for your changes
+- **Final Approval**: Within 1-2 days after all feedback addressed
+
+### 🐛 Reporting Issues
+
+If you encounter bugs or want to suggest features:
+
+1. **Check existing issues** first to avoid duplicates
+2. **Use the issue templates**:
+   - Bug Report template for bugs
+   - Feature Request template for new features
+3. **Provide complete information**:
+   - Environment details (OS, Python version)
+   - Steps to reproduce
+   - Expected vs actual behavior
+
+### 📚 Code Style Guidelines
+
+**Python Style:**
+- Follow PEP 8 conventions
+- Use meaningful variable names
+- Add docstrings to functions and classes
+- Keep functions focused (single responsibility)
+- Comment complex logic
+
+**Example:**
+```python
+def parse_price(price_value: str) -> float:
+    """
+    Parse a price string and convert to float.
+    
+    Args:
+        price_value: Price string (e.g., '$45.99' or '1,299.00')
+        
+    Returns:
+        Float value of the price
+        
+    Raises:
+        ValueError: If price cannot be parsed
+    """
+    # Implementation here
+    pass
+```
+
+### 🤝 Community Expectations
+
+- **Be respectful** - Professional and courteous communication
+- **Be patient** - Maintainers are volunteers
+- **Be helpful** - Help other contributors and users
+- **Be responsive** - Reply to feedback and questions promptly
+
+### 📄 License Agreement
+
+By contributing to this project, you agree that your contributions will be licensed under the **MIT License**.
+
+### ❓ Questions?
+
+- Open a discussion in Issues
+- Reference existing documentation
+- Check closed PRs for similar contributions
+
+**Thank you for contributing! 🎉**
 
 ## Support
 
