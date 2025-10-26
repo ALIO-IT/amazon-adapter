@@ -1,5 +1,9 @@
 # Amazon Auto Parts Adapter 🚗
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.120.0-009688.svg)](https://fastapi.tiangolo.com)
+
 A FastAPI web application that converts AutoZone-style auto parts CSV files into Amazon's upload format for listing products on Amazon.com.
 
 ## 📖 Documentation in Other Languages
@@ -936,12 +940,120 @@ time curl -X POST "http://localhost:8000/convert" \
 
 ## License
 
-MIT License
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+### Open Source
+
+This software is free and open source. You are free to:
+- ✅ Use commercially
+- ✅ Modify
+- ✅ Distribute
+- ✅ Use privately
+- ✅ Sublicense
+
+## ⚠️ Legal Disclaimer and Limitation of Liability
+
+**IMPORTANT: PLEASE READ CAREFULLY**
+
+### No Warranty
+
+This software is provided **"AS IS"**, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+### Limitation of Liability
+
+**The authors, contributors, and copyright holders of this software shall NOT be liable for:**
+
+1. **Data Loss or Corruption**: Any loss, corruption, or modification of your data or inventory files
+2. **Business Losses**: Lost profits, revenue, sales, business opportunities, or anticipated savings
+3. **Amazon Account Issues**: Suspension, termination, restrictions, or penalties to your Amazon Seller account
+4. **Product Listing Errors**: Incorrect product information, pricing errors, or description mistakes uploaded to Amazon
+5. **Compliance Violations**: Any violations of Amazon's Terms of Service, policies, or guidelines
+6. **Tax or Legal Issues**: Tax compliance issues, legal liabilities, or regulatory violations
+7. **Third-Party Claims**: Claims from customers, Amazon, or other third parties related to product listings
+8. **System Failures**: Software bugs, crashes, data processing errors, or system incompatibilities
+9. **Financial Damages**: Any direct, indirect, incidental, special, consequential, or punitive damages
+
+### User Responsibilities
+
+**BY USING THIS SOFTWARE, YOU ACKNOWLEDGE AND AGREE THAT:**
+
+1. **You Are Responsible**: You are solely responsible for:
+   - Reviewing all generated CSV files before uploading to Amazon
+   - Ensuring accuracy of product information, prices, and descriptions
+   - Compliance with Amazon's Terms of Service and all applicable laws
+   - Backing up your data before using this software
+   - Testing with small batches before bulk uploads
+
+2. **No Guarantees**: We make no guarantees that:
+   - The generated files will be accepted by Amazon
+   - The software will meet your specific requirements
+   - The software will be error-free or uninterrupted
+   - Results will be accurate or reliable
+
+3. **Verification Required**: You must:
+   - Verify all product data before uploading
+   - Review Amazon's processing reports after upload
+   - Monitor your Amazon Seller account for any issues
+   - Maintain backups of your original data
+
+4. **Amazon Compliance**: You are responsible for:
+   - Understanding and following Amazon's requirements
+   - Ensuring your products comply with Amazon's policies
+   - Maintaining your Amazon Seller account in good standing
+   - Resolving any issues with Amazon directly
+
+### Third-Party Services
+
+This software interacts with Amazon Seller Central, which is a third-party service:
+- We are not affiliated with, endorsed by, or sponsored by Amazon
+- Amazon's terms of service and policies apply to your use of their platform
+- Changes to Amazon's APIs or requirements may affect this software's functionality
+
+### Indemnification
+
+You agree to indemnify, defend, and hold harmless the authors, contributors, and copyright holders from any claims, damages, losses, liabilities, costs, or expenses arising from:
+- Your use or misuse of this software
+- Your violation of Amazon's terms or policies
+- Your violation of any applicable laws or regulations
+- Product listings you create or upload
+
+### Geographic and Regulatory Compliance
+
+- This software may not comply with regulations in all jurisdictions
+- You are responsible for ensuring compliance with local laws and regulations
+- Export control laws may apply to your use of this software
+
+### Updates and Modifications
+
+- We may update or modify this software at any time without notice
+- Continued use after modifications constitutes acceptance of changes
+- We are not obligated to maintain, update, or support this software
+
+### Dispute Resolution
+
+- Any disputes shall be governed by the laws applicable to the copyright holder's jurisdiction
+- By using this software, you agree to these terms and limitations
+
+---
+
+**⚠️ CRITICAL**: Always review generated files and test with a small number of products before bulk uploads. We strongly recommend:
+- Start with 1-5 test products
+- Review Amazon's processing report
+- Verify products appear correctly in your inventory
+- Only then proceed with larger uploads
+
+**If you do not agree to these terms, do not use this software.**
+
+---
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+By contributing to this project, you agree that your contributions will be licensed under the MIT License.
+
 ## Support
 
 For issues or questions, please open an issue on GitHub.
+
+**Note**: Support is provided on a best-effort basis with no guarantees or SLAs.

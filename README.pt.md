@@ -275,15 +275,118 @@ amazon-adapter/
 
 ## Licença
 
-Licença MIT
+Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+### Código Aberto
+
+Este software é gratuito e de código aberto. Você é livre para:
+- ✅ Usar comercialmente
+- ✅ Modificar
+- ✅ Distribuir
+- ✅ Usar privadamente
+- ✅ Sublicenciar
+
+## ⚠️ Isenção de Responsabilidade Legal e Limitação de Responsabilidade
+
+**IMPORTANTE: LEIA ATENTAMENTE**
+
+### Sem Garantia
+
+Este software é fornecido **"NO ESTADO EM QUE SE ENCONTRA"**, sem garantia de qualquer tipo, expressa ou implícita, incluindo mas não limitado às garantias de comercialização, adequação a um propósito específico e não violação.
+
+### Limitação de Responsabilidade
+
+**Os autores, contribuidores e detentores de direitos autorais deste software NÃO serão responsáveis por:**
+
+1. **Perda ou Corrupção de Dados**: Qualquer perda, corrupção ou modificação de seus dados ou arquivos de inventário
+2. **Perdas Comerciais**: Perda de lucros, receita, vendas, oportunidades de negócios ou economias antecipadas
+3. **Problemas com Conta Amazon**: Suspensão, encerramento, restrições ou penalidades à sua conta Amazon Seller
+4. **Erros em Listagens**: Informações incorretas de produtos, erros de preços ou erros de descrição carregados na Amazon
+5. **Violações de Conformidade**: Quaisquer violações dos Termos de Serviço, políticas ou diretrizes da Amazon
+6. **Problemas Legais ou Fiscais**: Problemas de conformidade fiscal, responsabilidades legais ou violações regulatórias
+7. **Reclamações de Terceiros**: Reclamações de clientes, Amazon ou outras terceiras partes relacionadas a listagens de produtos
+8. **Falhas do Sistema**: Bugs de software, crashes, erros de processamento de dados ou incompatibilidades do sistema
+9. **Danos Financeiros**: Quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos
+
+### Responsabilidades do Usuário
+
+**AO USAR ESTE SOFTWARE, VOCÊ RECONHECE E CONCORDA QUE:**
+
+1. **Você É Responsável**: Você é o único responsável por:
+   - Revisar todos os arquivos CSV gerados antes de fazer upload na Amazon
+   - Garantir a precisão das informações do produto, preços e descrições
+   - Conformidade com os Termos de Serviço da Amazon e todas as leis aplicáveis
+   - Fazer backup de seus dados antes de usar este software
+   - Testar com lotes pequenos antes de uploads em massa
+
+2. **Sem Garantias**: Não garantimos que:
+   - Os arquivos gerados serão aceitos pela Amazon
+   - O software atenderá seus requisitos específicos
+   - O software será livre de erros ou ininterrupto
+   - Os resultados serão precisos ou confiáveis
+
+3. **Verificação Obrigatória**: Você deve:
+   - Verificar todos os dados do produto antes de fazer upload
+   - Revisar os relatórios de processamento da Amazon após o upload
+   - Monitorar sua conta Amazon Seller para quaisquer problemas
+   - Manter backups de seus dados originais
+
+4. **Conformidade com Amazon**: Você é responsável por:
+   - Entender e seguir os requisitos da Amazon
+   - Garantir que seus produtos estejam em conformidade com as políticas da Amazon
+   - Manter sua conta Amazon Seller em boa situação
+   - Resolver quaisquer problemas com a Amazon diretamente
+
+### Serviços de Terceiros
+
+Este software interage com o Amazon Seller Central, que é um serviço de terceiros:
+- Não somos afiliados, endossados ou patrocinados pela Amazon
+- Os termos de serviço e políticas da Amazon se aplicam ao seu uso da plataforma
+- Mudanças nas APIs ou requisitos da Amazon podem afetar a funcionalidade deste software
+
+### Indenização
+
+Você concorda em indenizar, defender e isentar de responsabilidade os autores, contribuidores e detentores de direitos autorais de quaisquer reclamações, danos, perdas, responsabilidades, custos ou despesas decorrentes de:
+- Seu uso ou mau uso deste software
+- Sua violação dos termos ou políticas da Amazon
+- Sua violação de quaisquer leis ou regulamentações aplicáveis
+- Listagens de produtos que você cria ou carrega
+
+### Conformidade Geográfica e Regulatória
+
+- Este software pode não estar em conformidade com regulamentações em todas as jurisdições
+- Você é responsável por garantir a conformidade com leis e regulamentações locais
+- Leis de controle de exportação podem se aplicar ao seu uso deste software
+
+### Atualizações e Modificações
+
+- Podemos atualizar ou modificar este software a qualquer momento sem aviso prévio
+- O uso continuado após modificações constitui aceitação das alterações
+- Não somos obrigados a manter, atualizar ou dar suporte a este software
+
+---
+
+**⚠️ CRÍTICO**: Sempre revise os arquivos gerados e teste com um pequeno número de produtos antes de uploads em massa. Recomendamos fortemente:
+- Começar com 1-5 produtos de teste
+- Revisar o relatório de processamento da Amazon
+- Verificar se os produtos aparecem corretamente em seu inventário
+- Somente então prosseguir com uploads maiores
+
+**Se você não concorda com estes termos, não use este software.**
+
+---
 
 ## Contribuir
 
 Contribuições são bem-vindas! Por favor, sinta-se à vontade para enviar um Pull Request.
 
+Ao contribuir para este projeto, você concorda que suas contribuições serão licenciadas sob a Licença MIT.
+
 ## Suporte
 
 Para problemas ou questões, por favor abra uma issue no GitHub.
+
+**Nota**: O suporte é fornecido na base do melhor esforço sem garantias ou SLAs.
 
 ---
 
