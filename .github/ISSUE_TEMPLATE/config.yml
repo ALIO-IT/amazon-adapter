@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/ALIO-IT/amazon-adapter#readme
+    about: Read the documentation first for questions and usage
+  - name: ❓ Question / Support
+    url: https://github.com/ALIO-IT/amazon-adapter/issues/new
+    about: Ask questions or get help using the software
+
