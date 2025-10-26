@@ -44,3 +44,6 @@ outputs/
 *.csv
 !sample_autozone.csv
 
+# Documentation (AWS Marketplace PDF - not relevant to Seller Central)
+marketplace-api.pdf*
+

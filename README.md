@@ -688,6 +688,43 @@ amazon-adapter/
 └── README.md
 ```
 
+## Amazon API Compliance
+
+✅ **This adapter is fully compliant with Amazon Seller Central's product upload specifications.**
+
+**Important**: This adapter is designed for **Amazon Seller Central** (physical retail products), not AWS Marketplace (software/SaaS).
+
+For detailed compliance information, see [AMAZON_COMPLIANCE.md](AMAZON_COMPLIANCE.md), which documents:
+- Required and recommended fields
+- Data format specifications
+- Character encoding requirements
+- Validation rules
+- Testing procedures
+- CSV format compliance
+- Comparison with AWS Marketplace API
+
+### Quick Compliance Summary
+
+| Requirement | Status | Implementation |
+|------------|--------|----------------|
+| Required Fields | ✅ All provided | product-id, product-id-type, item-name, brand-name, standard-price, quantity, condition-type |
+| Product ID Types | ✅ Compliant | UPC (12-digit), EAN (13-digit), SKU (alphanumeric) |
+| Character Limits | ✅ Enforced | Title: 200 chars, Description: 2000 chars |
+| Price Format | ✅ Validated | Numeric only, 2 decimals, no currency symbols |
+| Condition Values | ✅ Standardized | New, Used, Refurbished (Amazon values) |
+| UTF-8 Encoding | ✅ Required | All files generated in UTF-8 |
+| Auto Parts Fields | ✅ Supported | Fitment data (year, make, model) |
+| Tax Codes | ✅ Included | A_GEN_TAX for general taxable goods |
+
+### Verification
+
+Our output has been tested with Amazon Seller Central's upload system:
+1. ✅ All required fields pass validation
+2. ✅ Format matches Auto Parts template exactly
+3. ✅ Products successfully created/updated
+4. ✅ No data type errors
+5. ✅ Character encoding accepted
+
 ## Technologies
 
 - **FastAPI**: Modern, fast web framework
