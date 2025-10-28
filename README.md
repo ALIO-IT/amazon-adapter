@@ -6,6 +6,18 @@
 
 A FastAPI web application that converts AutoZone-style auto parts CSV files into Amazon's upload format for listing products on Amazon.com.
 
+## 🎥 Video Demo
+
+**Watch how it works!** [Click here to view the video demonstration](./Amazon%20auto%20part%20catalog%20converter%20video.mp4)
+
+The video shows:
+- ✨ How to use the web interface
+- 🔄 Step-by-step conversion process
+- 📊 Input and output examples
+- 💡 Tips for best results
+
+**File**: `Amazon auto part catalog converter video.mp4` (7.4 MB)
+
 ## 📖 Documentation in Other Languages
 
 - **English** - You are here
